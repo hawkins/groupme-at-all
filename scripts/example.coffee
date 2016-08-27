@@ -5,6 +5,7 @@ room_id = process.env.HUBOT_GROUPME_ROOM_ID
 bot_id = process.env.HUBOT_GROUPME_BOT_ID
 token = process.env.HUBOT_GROUPME_TOKEN
 
+default_message = "Please check the GroupMe, everyone."
 blacklist = [
   '24719123', # Hunter
   '20449379', # Eli
@@ -16,10 +17,15 @@ blacklist = [
 ]
 
 module.exports = (robot) ->
-  robot.hear /@all/i, (res) ->
+  robot.hear /(.*)@all(.*)/i, (res) ->
+    text = res.match[0]
     users = robot.brain.users()
+
+    if text.length < users.length
+      text = default_message
+
     message =
-      'text': "Please check the GroupMe, everyone.",
+      'text': text,
       'bot_id': bot_id,
       'attachments': [
         "loci": [],
