@@ -1,0 +1,27 @@
+{
+  "name": "all",
+  "version": "0.0.0",
+  "private": true,
+  "author": "Josh Hawkins <jkhaccounts@gmail.com>",
+  "description": "GroupMe @all",
+  "dependencies": {
+    "hubot-maps": "0.0.2",
+    "hubot-help": "~0.2.0",
+    "hubot-shipit": "~0.2.0",
+    "hubot-diagnostics": "0.0.1",
+    "hubot-pugme": "~0.1.0",
+    "hubot-rules": "~0.1.1",
+    "hubot-google-images": "~0.2.6",
+    "hubot-google-translate": "~0.2.0",
+    "hubot-heroku-keepalive": "~1.0.2",
+    "hubot-groupme": "~2.2.0",
+    "hubot-redis-brain": "0.0.3",
+    "hubot-scripts": "~2.17.2",
+    "hubot": "~2.19.0",
+    "request": "~2.74.0",
+    "https": "~1.0.0"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}
