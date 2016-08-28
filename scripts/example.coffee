@@ -5,6 +5,7 @@ room_id = process.env.HUBOT_GROUPME_ROOM_ID
 bot_id = process.env.HUBOT_GROUPME_BOT_ID
 token = process.env.HUBOT_GROUPME_TOKEN
 
+# @all
 default_message = "Please check the GroupMe, everyone."
 blacklist = [
   '24719123', # Hunter
@@ -15,6 +16,15 @@ blacklist = [
   '20747530', # Jared
   '13984636'  # Dylan
 ]
+
+# We evil now boys
+# Prevent Heroku from dozing
+setInterval () ->
+  op =
+    host: "hull-groupme-all.herokuapp.com"
+    method: "GET"
+  https.request op
+, 300000
 
 module.exports = (robot) ->
   robot.hear /(.*)@all(.*)/i, (res) ->
@@ -37,8 +47,7 @@ module.exports = (robot) ->
     for user, values of users
       if user in blacklist
         continue
-      loci = [i, i+1]
-      message.attachments[0].loci.push(loci)
+      message.attachments[0].loci.push([i, i+1])
       message.attachments[0].user_ids.push(user)
       i += 1
 
