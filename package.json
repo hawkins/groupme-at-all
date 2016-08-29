@@ -18,7 +18,6 @@
     "hubot-redis-brain": "0.0.3",
     "hubot-scripts": "~2.17.2",
     "hubot": "~2.19.0",
-    "request": "~2.74.0",
     "https": "~1.0.0"
   },
   "engines": {
