@@ -43,7 +43,7 @@ module.exports = (robot) ->
     user
 
   getUserById = (id) ->
-    user = robot.brain.userFOrId id
+    user = robot.brain.userForId id
     unless user.user_id
       return null
     user
@@ -75,9 +75,21 @@ module.exports = (robot) ->
     else
       res.send "Could not find a user with the ID #{target}"
 
-  robot.hear /view blacklist/i, (res) ->
+  robot.hear /view( raw)? blacklist/i, (res) ->
     """View blacklist command"""
-    res.send JSON.stringify blacklist
+    if res.match[1]
+      # If raw output desired
+      res.send JSON.stringify blacklist
+    else
+      blacklistNames = []
+      for item in blacklist
+        user = getUserById item
+        if user
+          blacklistNames.push user.name
+      if blacklistNames.length > 0
+        res.send blacklistNames.join ', '
+      else
+        res.send "There are currently no users blacklisted."
 
   robot.hear /blacklist (.*)/i, (res) ->
     """Blacklist command (expects name)"""
