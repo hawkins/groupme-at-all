@@ -41,3 +41,8 @@ And optionally configure a Redis server for blacklist persistence.
 Once configured, you can run the bot with `./bin/hubot -a groupme`. 
 
 You should now be able to open the GroupMe room you've chosen and tag everyone in the group by mentioning @all!
+
+
+## For more help
+
+Since this is one of my most popular repos, I wrote a [blog post](https://hawkins.github.io/2016/10/11/groupme-at-all/) on configuring and extending this project. Please check this out if you have trouble! Finally, I'm always happy to help you with any other troubles that may come up. Please either [open a new issue](https://github.com/hawkins/groupme-at-all/issues/new) or [send me an email :)](mailto:hawkinswritescode@gmail.com)
