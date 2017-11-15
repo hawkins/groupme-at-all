@@ -1,4 +1,4 @@
-# GroupMe @all
+# <img src="logo.png" width="128"> GroupMe @all
 
 **@all** is a GroupMe chat bot built on [Hubot][hubot]. It was configured to be
 deployed on [Heroku][heroku] to get you up and running as quick as possible.
@@ -15,6 +15,13 @@ Blacklist users who don't need notifications.
 
 Deploy to heroku easily!
 
+## Using
+
+In practice, users can simply write `@all` anywhere in their message to tag everyone in the group. The bot will repeat their message and tag everyone in the group in their repeated message.
+
+You can also control a blacklist/whitelist via chat commands as well. This is a bit more advanced, so please review the source code yourself if you're interested to do this.
+
+---
 
 ### Deploying to Heroku
 
@@ -25,14 +32,19 @@ Deploy to heroku easily!
 4. Deploy from your GitHub and select the repo
 5. Configure environment variables (and optionally Redis)
 
+If you're deploying via Heroku, you're done! :tada: The rest of this document is more specific to non-heroku users. See the end of the document if you need help.
+
+---
+
+## Manual setup
 
 ### Configuration
 
 Start by configuring the environment variables below:
 
-- HUBOT_GROUPME_TOKEN
-- HUBOT_GROUPME_ROOM_ID
-- HUBOT_GROUPME_BOT_ID
+- `HUBOT_GROUPME_TOKEN`
+- `HUBOT_GROUPME_ROOM_ID`
+- `HUBOT_GROUPME_BOT_ID`
 
 And optionally configure a Redis server for blacklist persistence.
 
@@ -43,6 +55,7 @@ Once configured, you can compile the bot with `npm run build` and then run the b
 
 You should now be able to open the GroupMe room you've chosen and tag everyone in the group by mentioning **@all**!
 
+---
 
 ## For more help
 
