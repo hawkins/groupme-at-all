@@ -1,11 +1,14 @@
-# <img src="logo.png" width="128"> GroupMe @all
+# <img src="logo.png" width="128"> Unofficial GroupMe @all
 
-**@all** is a GroupMe chat bot built on [Hubot][hubot]. It was configured to be
+**@all** is a third-party GroupMe chat bot built on [Hubot][hubot]. It was configured to be
 deployed on [Heroku][heroku] to get you up and running as quick as possible.
 
 [heroku]: http://www.heroku.com
 [hubot]: http://hubot.github.com
 
+> This project is not sponsored by, endorsed by, or managed by GroupMe. This is entirely a third-party project and is 100% open sourced. Use at your own risk.
+
+> For questions or concerns, please contact the repository owner, not GroupMe.
 
 ## Features
 
@@ -60,3 +63,7 @@ You should now be able to open the GroupMe room you've chosen and tag everyone i
 ## For more help
 
 Since this is one of my most popular repos, I wrote a [blog post](https://hawkins.is/writing-about/groupme-at-all) on configuring and extending this project. Please check this out if you have trouble! Finally, I'm always happy to help you with any other troubles that may come up. Please either [open a new issue](https://github.com/hawkins/groupme-at-all/issues/new) or [send me an email :)](mailto:hawkinswritescode@gmail.com)
+
+---
+
+powered by GroupMe®
