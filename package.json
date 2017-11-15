@@ -1,8 +1,7 @@
 {
   "name": "groupme-at-all",
   "version": "2.0.0",
-  "private": true,
-  "author": "Josh Hawkins <jkhaccounts@gmail.com>",
+  "author": "Josh Hawkins <hawkinswritescode@gmail.com>",
   "description": "GroupMe @all",
   "scripts": {
     "postinstall": "npm run build",
@@ -16,7 +15,6 @@
     "babel-cli": "^6.26.0",
     "babel-preset-es2015": "^6.24.1",
     "express": "^4.16.1",
-    "https": "~1.0.0",
     "hubot": "~2.19.0",
     "hubot-diagnostics": "0.0.1",
     "hubot-google-images": "~0.2.6",
@@ -30,8 +28,5 @@
     "hubot-rules": "~0.1.1",
     "hubot-scripts": "~2.17.2",
     "hubot-shipit": "~0.2.0"
-  },
-  "engines": {
-    "node": "0.10.x"
   }
 }
