@@ -39,7 +39,7 @@ And optionally configure a Redis server for blacklist persistence.
 
 ### Running
 
-Once configured, you can run the bot with `./bin/hubot -a groupme`. 
+Once configured, you can compile the bot with `npm run build` and then run the bot with `npm run start`.
 
 You should now be able to open the GroupMe room you've chosen and tag everyone in the group by mentioning **@all**!
 
