@@ -146,10 +146,9 @@ class AllBot {
     this.robot.hear(/(.*)@all(.*)/i, res => {
       // Select the longer of the two options.
       // TODO: Maybe combine them?
-      const text = res.match[0].length > res.match[1].length
-        ? res.match[0]
-        : res.match[1];
-      const users = robot.brain.users();
+      const text =
+        res.match[0].length > res.match[1].length ? res.match[0] : res.match[1];
+      const users = this.robot.brain.users();
 
       // Default text if not long enough
       // TODO: Is this necessary? Can't we tag everyone on a 1 character message?
@@ -160,16 +159,17 @@ class AllBot {
       let message = {
         text,
         bot_id,
-        attachments: { loci: [], type: "mentions", user_ids: [] }
+        attachments: [{ loci: [], type: "mentions", user_ids: [] }]
       };
 
       // Add "mention" for each user
-      users.map((user, index) => {
+      Object.keys(users).map((userID, index) => {
         // Skip blacklisted users
-        if (this.blacklist.indexOf(user) !== -1) return;
+        if (this.blacklist.indexOf(userID) !== -1) return;
+
         // TODO: Would [i, i] work?
-        message.attachments[0].loci.push([i, i + 1]);
-        message.attachments[0].user_ids.push(user);
+        message.attachments[0].loci.push([index, index + 1]);
+        message.attachments[0].user_ids.push(userID);
       });
 
       // Send the request
@@ -190,7 +190,7 @@ class AllBot {
         let data = "";
         response.on("data", chunk => (data += chunk));
         response.on("end", () =>
-          console.log("[GROUPME RESPONSE] #{response.statusCode} #{data}")
+          console.log(`[GROUPME RESPONSE] ${response.statusCode} ${data}`)
         );
       });
       req.end(json);
