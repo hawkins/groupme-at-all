@@ -1,1 +1,1 @@
-web: bin/hubot -a groupme
+web: npm run start
