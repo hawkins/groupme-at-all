@@ -23,7 +23,9 @@
 import io from "socket.io-client";
 let socket = io('http://localhost:9000');
 
-socket.on("message", console.log);
+socket.on("message", (msg) => {
+  console.log(msg.user.nickname + ": " + msg.text);
+});
 
 export default {
   name: 'hello',

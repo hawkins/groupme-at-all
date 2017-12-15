@@ -205,7 +205,7 @@ class AllBot {
     this.robot.hear(/(.*)@all(.*)/i, res => this.respondToAtAll(res));
 
     // Log all messages heard to status socket
-    this.robot.hear(/.+/, res => io.emit("message", res.match[0]));
+    this.robot.hear(/.+/, res => io.emit("message", res.message));
   }
 }
 
