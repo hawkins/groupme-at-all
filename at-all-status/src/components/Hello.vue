@@ -20,6 +20,11 @@
 </template>
 
 <script>
+import io from "socket.io-client";
+let socket = io('http://localhost:9000');
+
+socket.on("message", console.log);
+
 export default {
   name: 'hello',
   data () {
@@ -30,7 +35,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 h1, h2 {
   font-weight: normal;

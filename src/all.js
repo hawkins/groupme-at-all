@@ -1,4 +1,6 @@
 const https = require("https");
+const io = require("socket.io")();
+io.listen(9000);
 
 // Bot configs read in from environment
 const room_id = process.env.HUBOT_GROUPME_ROOM_ID;
@@ -183,6 +185,7 @@ class AllBot {
 
   // Defines the main logic of the bot
   run() {
+    // Logging to status socket
     // Register listeners with hubot
     this.robot.hear(/get id (.+)/i, res => this.respondToID(res, res.match[1]));
     this.robot.hear(/get name (.+)/i, res =>
@@ -195,11 +198,14 @@ class AllBot {
       this.respondToBlacklist(res, res.match[1])
     );
     this.robot.hear(/whitelist (.+)/i, res =>
-      respondToWhitelist(res, res.match[1])
+      this.respondToWhitelist(res, res.match[1])
     );
 
     // Mention @all command
     this.robot.hear(/(.*)@all(.*)/i, res => this.respondToAtAll(res));
+
+    // Log all messages heard to status socket
+    this.robot.hear(/.+/, res => io.emit("message", res.match[0]));
   }
 }
 
