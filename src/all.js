@@ -195,7 +195,7 @@ class AllBot {
       this.respondToBlacklist(res, res.match[1])
     );
     this.robot.hear(/whitelist (.+)/i, res =>
-      respondToWhitelist(res, res.match[1])
+      this.respondToWhitelist(res, res.match[1])
     );
 
     // Mention @all command
