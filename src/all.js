@@ -98,7 +98,7 @@ class AllBot {
 
   respondToViewBlacklist(res) {
     // Raw blacklist
-    if (res.match[1]) return res.send(JSON.strinify(this.blacklist));
+    if (res.match[1]) return res.send(JSON.stringify(this.blacklist));
 
     const blacklistNames = this.blacklist.map(
       user => this.getUserById(id).name
@@ -113,7 +113,7 @@ class AllBot {
 
     if (!user) return res.send(`Could not find a user with the name ${target}`);
 
-    conosle.log(`Blacklisting ${target}, ${user.user_id}`);
+    console.log(`Blacklisting ${target}, ${user.user_id}`);
     this.addToBlacklist(user.user_id);
     res.send(`Blacklisted ${target} successfully.`);
   }
