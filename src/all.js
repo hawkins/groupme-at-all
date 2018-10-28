@@ -101,7 +101,7 @@ class AllBot {
     if (res.match[1]) return res.send(JSON.stringify(this.blacklist));
 
     const blacklistNames = this.blacklist.map(
-      user => this.getUserById(id).name
+      user => this.getUserById(user).name
     );
 
     if (blacklistNames.length > 0) return res.send(blacklistNames.join(", "));
